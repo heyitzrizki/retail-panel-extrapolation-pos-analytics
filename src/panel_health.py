@@ -97,9 +97,8 @@ def build_panel_health_summary(
     extrapolation_comparison: pd.DataFrame,
 ) -> pd.DataFrame:
     rows = []
-    best_method_error = extrapolation_comparison.sort_values("wape").head(1)
-    error_pct = float(best_method_error["bias_pct"].iloc[0]) if not best_method_error.empty else np.nan
     for panel_name, panel in panels.groupby("panel_name"):
+        error_pct = _panel_extrapolation_error(panel_name, extrapolation_comparison)
         sample_score = sample_coverage_score(panel, universe)
         category_score = category_coverage_score(panel, category_sales)
         concentration = top_store_concentration_score(panel)
@@ -123,3 +122,15 @@ def build_panel_health_summary(
     output = pd.DataFrame(rows)
     output["recommended_action"] = output.apply(recommended_action, axis=1)
     return output
+
+
+def _panel_extrapolation_error(panel_name: str, extrapolation_comparison: pd.DataFrame) -> float:
+    if extrapolation_comparison.empty:
+        return np.nan
+    comparison = extrapolation_comparison.copy()
+    if "panel_name" in comparison.columns:
+        comparison = comparison[comparison["panel_name"] == panel_name]
+    if comparison.empty:
+        return np.nan
+    best_method_error = comparison.sort_values("wape").head(1)
+    return float(best_method_error["bias_pct"].iloc[0]) if not best_method_error.empty else np.nan

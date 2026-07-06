@@ -7,7 +7,7 @@ This portfolio project demonstrates how real retail POS panel data can be transf
 The project is inspired by retail panel measurement and POS data quality workflows. It focuses on universe definition, sample panel design, extrapolation, retailer absence scenarios, and KPI monitoring for panel reliability.
 
 ## Dataset Used
-The project uses the Kaggle dataset "Corporacion Favorita Grocery Sales Forecasting". Place the raw files in `data/raw/` as `.csv` or `.csv.7z` files. The workflow uses real stores, real items, and real observed sales rows only.
+The project uses the Kaggle dataset "Corporacion Favorita Grocery Sales Forecasting". Place the extracted raw files in `data/raw/` as `.csv` files. The workflow uses real stores, real items, and real observed sales rows only.
 
 ## Methodology
 The full Favorita store network is treated as the known universe. Sample panels are created by selecting real stores from that universe. Full-universe actual sales are compared with extrapolated estimates from sample panels.
@@ -19,13 +19,13 @@ The universe workflow identifies active stores using sales and transaction cover
 The sample design workflow creates random, stratified, large-store-biased, reduced, and optimized panels. Panels are compared by store coverage, geography coverage, sales contribution, category coverage, and top store concentration.
 
 ## Extrapolation Methods
-The project includes naive store-count extrapolation, stratified extrapolation, contribution-weighted extrapolation, and category-level extrapolation. Evaluation compares estimated market sales against actual full-universe sales.
+The project includes naive store-count extrapolation, stratified extrapolation, historical contribution-weighted extrapolation, and category-level extrapolation. The contribution factor is calibrated from an early baseline window rather than the full evaluation period. Evaluation compares estimated market sales against actual full-universe sales by panel and method.
 
 ## Missing Retailer Simulation
-Missing retailer scenarios hold out real stores from the panel, including random stores, top-contributing stores, and stores from selected clusters. Imputation methods use similar-store averages, historical trends, and category-level trend adjustment.
+Missing retailer scenarios hold out real stores from the panel, including random stores, top-contributing stores, and stores from selected clusters. Imputation methods use similar-store averages, historical trends, and category-level trend adjustment. The analysis separates panel-level recovery from market-level impact after extrapolation.
 
 ## Panel Health KPIs
-Panel health outputs include active store rate, sample coverage score, category coverage score, top store concentration, extrapolation reliability score, panel stability score, overall health score, risk level, and recommended action.
+Panel health outputs include active store rate, sample coverage score, category coverage score, top store concentration, panel-specific extrapolation reliability score, panel stability score, overall health score, risk level, and recommended action.
 
 ## Dashboard Outputs
 Run `streamlit run dashboard/streamlit_app.py` after generating CSV outputs from the notebooks. The dashboard shows universe summaries, panel comparisons, extrapolation performance, weekly and category error, missing retailer impact, and panel health recommendations.
@@ -48,4 +48,4 @@ src/
 ```
 
 ## Expected Outputs
-The workflow exports CSV files to `data/outputs/`, including universe summaries, sample panel comparisons, extrapolation errors, missing retailer impact summaries, panel health KPIs, and dashboard summary tables.
+The workflow exports CSV files to `data/outputs/`, including universe summaries, sample panel comparisons, extrapolation errors, uncovered strata summaries, missing retailer impact summaries, panel health KPIs, and dashboard summary tables. Generated output files are ignored by Git by default so the repository stays lightweight. Regenerate them locally by running the notebooks in order.

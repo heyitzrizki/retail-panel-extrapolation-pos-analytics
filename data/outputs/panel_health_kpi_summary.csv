@@ -1,5 +1,0 @@
-panel_name,active_store_rate,sample_coverage_score,category_coverage_score,top_store_concentration,extrapolation_error_pct,extrapolation_reliability_score,panel_stability_score,overall_panel_health_score,risk_level,recommended_action
-large_store_biased_panel,1.0,0.35185185185185186,1.0,0.4459779392898987,4.5962220741048e-09,0.9999999954037779,1.0,0.7811747815931462,medium,Review panel composition and extrapolation error drivers.
-optimized_panel,1.0,0.35185185185185186,1.0,0.4725121161962081,4.5962220741048e-09,0.9999999954037779,1.0,0.7758679462118844,medium,Review panel composition and extrapolation error drivers.
-random_panel,1.0,0.35185185185185186,1.0,0.4759077413987058,4.5962220741048e-09,0.9999999954037779,1.0,0.7751888211713848,medium,Review panel composition and extrapolation error drivers.
-stratified_panel,1.0,0.3333333333333333,1.0,0.4861974027274449,4.5962220741048e-09,0.9999999954037779,1.0,0.7694271852019332,medium,Review panel composition and extrapolation error drivers.

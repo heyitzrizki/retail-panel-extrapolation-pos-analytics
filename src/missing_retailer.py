@@ -75,6 +75,43 @@ def estimate_missing_sales_category_trend(
 
 
 # 0.3 Impact Comparison
+def _risk_level(error_pct: float) -> str:
+    if pd.isna(error_pct):
+        return "unknown"
+    return "high" if abs(error_pct) >= 0.15 else "medium" if abs(error_pct) >= 0.05 else "low"
+
+
+def compare_panel_recovery_with_imputation(
+    scenario_name: str,
+    panel_sales: pd.DataFrame,
+    heldout: pd.DataFrame,
+    imputed_sales: pd.DataFrame | None,
+    method: str,
+) -> dict[str, float | str | int]:
+    actual_panel_total = panel_sales["unit_sales"].sum()
+    observed_total = panel_sales[~panel_sales["store_nbr"].isin(heldout["store_nbr"])]["unit_sales"].sum()
+    imputed_total = 0 if imputed_sales is None or imputed_sales.empty else imputed_sales["imputed_sales"].sum()
+    recovered_total = observed_total + imputed_total
+    heldout_actual = panel_sales[panel_sales["store_nbr"].isin(heldout["store_nbr"])]["unit_sales"].sum()
+    error = recovered_total - actual_panel_total
+    error_pct = error / actual_panel_total if actual_panel_total else np.nan
+    return {
+        "scenario_name": scenario_name,
+        "evaluation_level": "panel_recovery",
+        "heldout_store_count": heldout["store_nbr"].nunique(),
+        "heldout_sales_contribution": heldout_actual / actual_panel_total if actual_panel_total else np.nan,
+        "method": method,
+        "actual_panel_sales": actual_panel_total,
+        "recovered_panel_sales": recovered_total,
+        "actual_universe_sales": np.nan,
+        "estimated_market_sales": np.nan,
+        "market_extrapolation_factor": np.nan,
+        "error": error,
+        "error_pct": error_pct,
+        "business_risk_level": _risk_level(error_pct),
+    }
+
+
 def compare_market_estimate_with_imputation(
     scenario_name: str,
     universe_sales: pd.DataFrame,
@@ -83,23 +120,32 @@ def compare_market_estimate_with_imputation(
     imputed_sales: pd.DataFrame | None,
     method: str,
     period_col: str = "week",
+    market_factor: float | None = None,
 ) -> dict[str, float | str | int]:
     actual_total = universe_sales["unit_sales"].sum()
     observed_total = panel_sales[~panel_sales["store_nbr"].isin(heldout["store_nbr"])]["unit_sales"].sum()
     imputed_total = 0 if imputed_sales is None or imputed_sales.empty else imputed_sales["imputed_sales"].sum()
-    estimated_total = observed_total + imputed_total
+    panel_recovered_total = observed_total + imputed_total
+    if market_factor is None:
+        universe_store_count = universe_sales["store_nbr"].nunique()
+        panel_store_count = panel_sales["store_nbr"].nunique()
+        market_factor = universe_store_count / panel_store_count if panel_store_count else np.nan
+    estimated_total = panel_recovered_total * market_factor
     heldout_actual = panel_sales[panel_sales["store_nbr"].isin(heldout["store_nbr"])]["unit_sales"].sum()
     error = estimated_total - actual_total
     error_pct = error / actual_total if actual_total else np.nan
-    risk = "high" if abs(error_pct) >= 0.15 else "medium" if abs(error_pct) >= 0.05 else "low"
     return {
         "scenario_name": scenario_name,
+        "evaluation_level": "market_impact",
         "heldout_store_count": heldout["store_nbr"].nunique(),
         "heldout_sales_contribution": heldout_actual / actual_total if actual_total else np.nan,
         "method": method,
+        "actual_panel_sales": panel_sales["unit_sales"].sum(),
+        "recovered_panel_sales": panel_recovered_total,
         "actual_universe_sales": actual_total,
         "estimated_market_sales": estimated_total,
+        "market_extrapolation_factor": market_factor,
         "error": error,
         "error_pct": error_pct,
-        "business_risk_level": risk,
+        "business_risk_level": _risk_level(error_pct),
     }

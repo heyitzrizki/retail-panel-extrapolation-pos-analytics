@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import tempfile
 from typing import Iterable
 
 import pandas as pd
@@ -43,8 +44,38 @@ def load_csv_or_7z(
     if chunksize:
         kwargs["chunksize"] = chunksize
     if file_path.name.endswith(".csv.7z"):
-        kwargs["compression"] = "infer"
+        return _read_7z_csv(file_path, **kwargs)
     return pd.read_csv(file_path, **kwargs)
+
+
+def _read_7z_csv(path: Path, **read_csv_kwargs) -> pd.DataFrame | Iterable[pd.DataFrame]:
+    chunksize = read_csv_kwargs.get("chunksize")
+    if chunksize:
+        return _iter_7z_csv_chunks(path, read_csv_kwargs)
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        csv_path = _extract_single_csv(path, Path(temp_dir))
+        return pd.read_csv(csv_path, **read_csv_kwargs)
+
+
+def _iter_7z_csv_chunks(path: Path, read_csv_kwargs: dict) -> Iterable[pd.DataFrame]:
+    with tempfile.TemporaryDirectory() as temp_dir:
+        csv_path = _extract_single_csv(path, Path(temp_dir))
+        for chunk in pd.read_csv(csv_path, **read_csv_kwargs):
+            yield chunk
+
+
+def _extract_single_csv(path: Path, temp_dir: Path) -> Path:
+    try:
+        import py7zr
+    except ImportError as exc:
+        raise ImportError("Install py7zr to read .csv.7z files, or extract the CSV into data/raw/.") from exc
+    with py7zr.SevenZipFile(path, mode="r") as archive:
+        archive.extractall(path=temp_dir)
+    csv_files = sorted(temp_dir.rglob("*.csv"))
+    if not csv_files:
+        raise FileNotFoundError(f"No CSV file found inside {path.name}")
+    return csv_files[0]
 
 
 def load_stores(raw_dir: str | Path, csv_only: bool = False) -> pd.DataFrame:

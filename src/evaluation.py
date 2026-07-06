@@ -45,16 +45,21 @@ def category_level_error_summary(estimates: pd.DataFrame) -> pd.DataFrame:
 
 def method_comparison_table(estimates: pd.DataFrame) -> pd.DataFrame:
     rows = []
-    for method, group in estimates.groupby("method"):
-        rows.append(
-            {
-                "method": method,
-                "actual_sales": group["actual_sales"].sum(),
-                "estimated_sales": group["estimated_sales"].sum(),
-                "absolute_error": group["estimated_sales"].sum() - group["actual_sales"].sum(),
-                "mape": mape(group["actual_sales"], group["estimated_sales"]),
-                "wape": wape(group["actual_sales"], group["estimated_sales"]),
-                "bias_pct": bias_percentage(group["actual_sales"], group["estimated_sales"]),
-            }
-        )
+    group_cols = ["method"]
+    if "panel_name" in estimates.columns:
+        group_cols = ["panel_name", "method"]
+    for keys, group in estimates.groupby(group_cols):
+        row = {
+            "actual_sales": group["actual_sales"].sum(),
+            "estimated_sales": group["estimated_sales"].sum(),
+            "absolute_error": group["estimated_sales"].sum() - group["actual_sales"].sum(),
+            "mape": mape(group["actual_sales"], group["estimated_sales"]),
+            "wape": wape(group["actual_sales"], group["estimated_sales"]),
+            "bias_pct": bias_percentage(group["actual_sales"], group["estimated_sales"]),
+        }
+        if isinstance(keys, tuple):
+            row.update(dict(zip(group_cols, keys)))
+        else:
+            row[group_cols[0]] = keys
+        rows.append(row)
     return pd.DataFrame(rows).sort_values("wape")

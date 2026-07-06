@@ -9,8 +9,10 @@ env/
 # 0.2 Local Data
 data/raw/*
 data/processed/*
+data/outputs/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+!data/outputs/.gitkeep
 
 # 0.3 Local Runtime
 .streamlit/secrets.toml
