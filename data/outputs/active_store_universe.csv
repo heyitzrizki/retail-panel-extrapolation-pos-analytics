@@ -1,0 +1,55 @@
+store_nbr,city,state,type,cluster,total_sales,sales_days,in_universe,sales_active,transaction_days,transaction_active,is_active,sales_size_group,store_stratum
+1,Quito,Pichincha,D,13,2436517.2,226,True,True,226,True,True,small,Pichincha|Quito|D|13|small
+2,Quito,Pichincha,D,13,3564823.0,226,True,True,226,True,True,large,Pichincha|Quito|D|13|large
+3,Quito,Pichincha,D,8,8712339.0,226,True,True,226,True,True,large,Pichincha|Quito|D|8|large
+4,Quito,Pichincha,D,9,3126436.0,226,True,True,226,True,True,medium,Pichincha|Quito|D|9|medium
+5,Santo Domingo,Santo Domingo de los Tsachilas,D,4,2287996.0,226,True,True,226,True,True,small,Santo Domingo de los Tsachilas|Santo Domingo|D|4|small
+6,Quito,Pichincha,D,13,4242238.0,226,True,True,226,True,True,large,Pichincha|Quito|D|13|large
+7,Quito,Pichincha,D,8,4777960.0,226,True,True,226,True,True,large,Pichincha|Quito|D|8|large
+8,Quito,Pichincha,D,8,5250808.0,226,True,True,226,True,True,large,Pichincha|Quito|D|8|large
+9,Quito,Pichincha,B,6,4378597.0,226,True,True,226,True,True,large,Pichincha|Quito|B|6|large
+10,Quito,Pichincha,C,15,1462272.8,226,True,True,226,True,True,small,Pichincha|Quito|C|15|small
+11,Cayambe,Pichincha,B,6,4624729.0,226,True,True,226,True,True,large,Pichincha|Cayambe|B|6|large
+12,Latacunga,Cotopaxi,C,15,1794112.2,226,True,True,226,True,True,small,Cotopaxi|Latacunga|C|15|small
+13,Latacunga,Cotopaxi,C,15,1574906.6,226,True,True,226,True,True,small,Cotopaxi|Latacunga|C|15|small
+14,Riobamba,Chimborazo,C,7,1867289.4,226,True,True,226,True,True,small,Chimborazo|Riobamba|C|7|small
+15,Ibarra,Imbabura,C,15,1855465.6,226,True,True,226,True,True,small,Imbabura|Ibarra|C|15|small
+16,Santo Domingo,Santo Domingo de los Tsachilas,C,3,1483381.4,226,True,True,226,True,True,small,Santo Domingo de los Tsachilas|Santo Domingo|C|3|small
+17,Quito,Pichincha,C,12,3367259.2,226,True,True,226,True,True,medium,Pichincha|Quito|C|12|medium
+18,Quito,Pichincha,B,16,2574144.2,226,True,True,226,True,True,medium,Pichincha|Quito|B|16|medium
+19,Guaranda,Bolivar,C,15,2120811.8,226,True,True,226,True,True,small,Bolivar|Guaranda|C|15|small
+20,Quito,Pichincha,B,6,3612255.5,226,True,True,226,True,True,large,Pichincha|Quito|B|6|large
+21,Santo Domingo,Santo Domingo de los Tsachilas,B,6,2980049.5,226,True,True,226,True,True,medium,Santo Domingo de los Tsachilas|Santo Domingo|B|6|medium
+22,Puyo,Pastaza,C,7,1517214.2,226,True,True,226,True,True,small,Pastaza|Puyo|C|7|small
+23,Ambato,Tungurahua,D,9,1905896.6,226,True,True,226,True,True,small,Tungurahua|Ambato|D|9|small
+24,Guayaquil,Guayas,D,1,4058473.8,226,True,True,226,True,True,large,Guayas|Guayaquil|D|1|large
+25,Salinas,Santa Elena,D,1,2137267.0,227,True,True,227,True,True,small,Santa Elena|Salinas|D|1|small
+26,Guayaquil,Guayas,D,10,1163097.0,226,True,True,226,True,True,small,Guayas|Guayaquil|D|10|small
+27,Daule,Guayas,D,1,3507027.5,226,True,True,226,True,True,medium,Guayas|Daule|D|1|medium
+28,Guayaquil,Guayas,E,10,3420309.0,226,True,True,226,True,True,medium,Guayas|Guayaquil|E|10|medium
+29,Guayaquil,Guayas,E,10,2810076.2,226,True,True,226,True,True,medium,Guayas|Guayaquil|E|10|medium
+30,Guayaquil,Guayas,C,3,1306217.9,226,True,True,226,True,True,small,Guayas|Guayaquil|C|3|small
+31,Babahoyo,Los Rios,B,10,3018869.0,226,True,True,226,True,True,medium,Los Rios|Babahoyo|B|10|medium
+32,Guayaquil,Guayas,C,3,1130630.4,226,True,True,226,True,True,small,Guayas|Guayaquil|C|3|small
+33,Quevedo,Los Rios,C,3,2200351.2,226,True,True,226,True,True,small,Los Rios|Quevedo|C|3|small
+34,Guayaquil,Guayas,B,6,2570170.2,226,True,True,226,True,True,medium,Guayas|Guayaquil|B|6|medium
+35,Playas,Guayas,C,3,1285331.4,226,True,True,226,True,True,small,Guayas|Playas|C|3|small
+36,Libertad,Guayas,E,10,2749430.5,226,True,True,226,True,True,medium,Guayas|Libertad|E|10|medium
+37,Cuenca,Azuay,D,2,3185796.0,226,True,True,226,True,True,medium,Azuay|Cuenca|D|2|medium
+38,Loja,Loja,D,4,3005988.0,226,True,True,226,True,True,medium,Loja|Loja|D|4|medium
+39,Cuenca,Azuay,B,6,3739070.0,226,True,True,226,True,True,large,Azuay|Cuenca|B|6|large
+40,Machala,El Oro,C,3,3504945.0,226,True,True,226,True,True,medium,El Oro|Machala|C|3|medium
+41,Machala,El Oro,D,4,2945114.2,226,True,True,226,True,True,medium,El Oro|Machala|D|4|medium
+42,Cuenca,Azuay,D,2,3065485.0,226,True,True,226,True,True,medium,Azuay|Cuenca|D|2|medium
+43,Esmeraldas,Esmeraldas,E,10,3286373.8,226,True,True,226,True,True,medium,Esmeraldas|Esmeraldas|E|10|medium
+44,Quito,Pichincha,A,5,10490120.0,226,True,True,226,True,True,large,Pichincha|Quito|A|5|large
+45,Quito,Pichincha,A,11,9655921.0,226,True,True,226,True,True,large,Pichincha|Quito|A|11|large
+46,Quito,Pichincha,A,14,7237314.0,226,True,True,226,True,True,large,Pichincha|Quito|A|14|large
+47,Quito,Pichincha,A,14,9069117.0,226,True,True,226,True,True,large,Pichincha|Quito|A|14|large
+48,Quito,Pichincha,A,14,6016146.5,226,True,True,226,True,True,large,Pichincha|Quito|A|14|large
+49,Quito,Pichincha,A,11,8384248.5,226,True,True,226,True,True,large,Pichincha|Quito|A|11|large
+50,Ambato,Tungurahua,A,14,4915227.0,226,True,True,226,True,True,large,Tungurahua|Ambato|A|14|large
+51,Guayaquil,Guayas,A,17,5364284.0,226,True,True,226,True,True,large,Guayas|Guayaquil|A|17|large
+52,Manta,Manabi,A,11,2696169.8,118,True,True,118,True,True,medium,Manabi|Manta|A|11|medium
+53,Manta,Manabi,D,13,2711539.2,226,True,True,226,True,True,medium,Manabi|Manta|D|13|medium
+54,El Carmen,Manabi,C,3,2069327.6,226,True,True,226,True,True,small,Manabi|El Carmen|C|3|small

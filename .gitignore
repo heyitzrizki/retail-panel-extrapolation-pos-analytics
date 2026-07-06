@@ -1,0 +1,17 @@
+# 0.1 Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# 0.2 Local Data
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# 0.3 Local Runtime
+.streamlit/secrets.toml
+.env

@@ -1,0 +1,64 @@
+summary_dimension,summary_value,store_count,active_store_count,total_sales,active_store_rate
+type,A,9,9,63828548.0,1.0
+type,D,18,18,62084800.0,1.0
+type,C,15,15,28539516.0,1.0
+type,B,8,8,27497884.0,1.0
+type,E,4,4,12266190.0,1.0
+cluster,14,4,4,27237804.0,1.0
+cluster,6,6,6,21904872.0,1.0
+cluster,11,3,3,20736340.0,1.0
+cluster,8,3,3,18741108.0,1.0
+cluster,10,6,6,16448156.0,1.0
+cluster,3,7,7,12980185.0,1.0
+cluster,13,4,4,12955117.0,1.0
+cluster,5,1,1,10490120.0,1.0
+cluster,1,3,3,9702768.0,1.0
+cluster,15,5,5,8807569.0,1.0
+cluster,4,3,3,8239098.0,1.0
+cluster,2,2,2,6251281.0,1.0
+cluster,17,1,1,5364284.0,1.0
+cluster,9,2,2,5032332.5,1.0
+cluster,7,2,2,3384503.5,1.0
+cluster,12,1,1,3367259.2,1.0
+cluster,16,1,1,2574144.2,1.0
+city,Quito,18,18,98358520.0,1.0
+city,Guayaquil,8,8,21823258.0,1.0
+city,Cuenca,3,3,9990351.0,1.0
+city,Ambato,2,2,6821123.5,1.0
+city,Santo Domingo,3,3,6751427.0,1.0
+city,Machala,2,2,6450059.0,1.0
+city,Manta,2,2,5407709.0,1.0
+city,Cayambe,1,1,4624729.0,1.0
+city,Daule,1,1,3507027.5,1.0
+city,Latacunga,2,2,3369019.0,1.0
+city,Esmeraldas,1,1,3286373.8,1.0
+city,Babahoyo,1,1,3018869.0,1.0
+city,Loja,1,1,3005988.0,1.0
+city,Libertad,1,1,2749430.5,1.0
+city,Quevedo,1,1,2200351.2,1.0
+city,Salinas,1,1,2137267.0,1.0
+city,Guaranda,1,1,2120811.8,1.0
+city,El Carmen,1,1,2069327.6,1.0
+city,Riobamba,1,1,1867289.4,1.0
+city,Ibarra,1,1,1855465.6,1.0
+city,Puyo,1,1,1517214.2,1.0
+city,Playas,1,1,1285331.4,1.0
+state,Pichincha,19,19,102983250.0,1.0
+state,Guayas,11,11,29365048.0,1.0
+state,Azuay,3,3,9990351.0,1.0
+state,Manabi,3,3,7477036.5,1.0
+state,Tungurahua,2,2,6821123.5,1.0
+state,Santo Domingo de los Tsachilas,3,3,6751427.0,1.0
+state,El Oro,2,2,6450059.0,1.0
+state,Los Rios,2,2,5219220.0,1.0
+state,Cotopaxi,2,2,3369019.0,1.0
+state,Esmeraldas,1,1,3286373.8,1.0
+state,Loja,1,1,3005988.0,1.0
+state,Santa Elena,1,1,2137267.0,1.0
+state,Bolivar,1,1,2120811.8,1.0
+state,Chimborazo,1,1,1867289.4,1.0
+state,Imbabura,1,1,1855465.6,1.0
+state,Pastaza,1,1,1517214.2,1.0
+sales_size_group,large,18,18,108093670.0,1.0
+sales_size_group,medium,18,18,54525184.0,1.0
+sales_size_group,small,18,18,31598086.0,1.0

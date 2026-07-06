@@ -1,0 +1,76 @@
+panel_name,store_nbr,city,state,type,cluster,sales_size_group,total_sales
+random_panel,20,Quito,Pichincha,B,6,large,3612255.5
+random_panel,50,Ambato,Tungurahua,A,14,large,4915227.0
+random_panel,49,Quito,Pichincha,A,11,large,8384248.5
+random_panel,13,Latacunga,Cotopaxi,C,15,small,1574906.6
+random_panel,45,Quito,Pichincha,A,11,large,9655921.0
+random_panel,6,Quito,Pichincha,D,13,large,4242238.0
+random_panel,18,Quito,Pichincha,B,16,medium,2574144.2
+random_panel,53,Manta,Manabi,D,13,medium,2711539.2
+random_panel,4,Quito,Pichincha,D,9,medium,3126436.0
+random_panel,33,Quevedo,Los Rios,C,3,small,2200351.2
+random_panel,14,Riobamba,Chimborazo,C,7,small,1867289.4
+random_panel,9,Quito,Pichincha,B,6,large,4378597.0
+random_panel,27,Daule,Guayas,D,1,medium,3507027.5
+random_panel,7,Quito,Pichincha,D,8,large,4777960.0
+random_panel,35,Playas,Guayas,C,3,small,1285331.4
+random_panel,5,Santo Domingo,Santo Domingo de los Tsachilas,D,4,small,2287996.0
+random_panel,38,Loja,Loja,D,4,medium,3005988.0
+random_panel,25,Salinas,Santa Elena,D,1,small,2137267.0
+random_panel,46,Quito,Pichincha,A,14,large,7237314.0
+stratified_panel,51,Guayaquil,Guayas,A,17,large,5364284.0
+stratified_panel,45,Quito,Pichincha,A,11,large,9655921.0
+stratified_panel,49,Quito,Pichincha,A,11,large,8384248.5
+stratified_panel,11,Cayambe,Pichincha,B,6,large,4624729.0
+stratified_panel,31,Babahoyo,Los Rios,B,10,medium,3018869.0
+stratified_panel,9,Quito,Pichincha,B,6,large,4378597.0
+stratified_panel,30,Guayaquil,Guayas,C,3,small,1306217.9
+stratified_panel,33,Quevedo,Los Rios,C,3,small,2200351.2
+stratified_panel,10,Quito,Pichincha,C,15,small,1462272.8
+stratified_panel,40,Machala,El Oro,C,3,medium,3504945.0
+stratified_panel,16,Santo Domingo,Santo Domingo de los Tsachilas,C,3,small,1483381.4
+stratified_panel,1,Quito,Pichincha,D,13,small,2436517.2
+stratified_panel,2,Quito,Pichincha,D,13,large,3564823.0
+stratified_panel,23,Ambato,Tungurahua,D,9,small,1905896.6
+stratified_panel,6,Quito,Pichincha,D,13,large,4242238.0
+stratified_panel,4,Quito,Pichincha,D,9,medium,3126436.0
+stratified_panel,37,Cuenca,Azuay,D,2,medium,3185796.0
+stratified_panel,29,Guayaquil,Guayas,E,10,medium,2810076.2
+large_store_biased_panel,24,Guayaquil,Guayas,D,1,large,4058473.8
+large_store_biased_panel,51,Guayaquil,Guayas,A,17,large,5364284.0
+large_store_biased_panel,45,Quito,Pichincha,A,11,large,9655921.0
+large_store_biased_panel,40,Machala,El Oro,C,3,medium,3504945.0
+large_store_biased_panel,8,Quito,Pichincha,D,8,large,5250808.0
+large_store_biased_panel,3,Quito,Pichincha,D,8,large,8712339.0
+large_store_biased_panel,49,Quito,Pichincha,A,11,large,8384248.5
+large_store_biased_panel,41,Machala,El Oro,D,4,medium,2945114.2
+large_store_biased_panel,2,Quito,Pichincha,D,13,large,3564823.0
+large_store_biased_panel,52,Manta,Manabi,A,11,medium,2696169.8
+large_store_biased_panel,47,Quito,Pichincha,A,14,large,9069117.0
+large_store_biased_panel,11,Cayambe,Pichincha,B,6,large,4624729.0
+large_store_biased_panel,9,Quito,Pichincha,B,6,large,4378597.0
+large_store_biased_panel,18,Quito,Pichincha,B,16,medium,2574144.2
+large_store_biased_panel,36,Libertad,Guayas,E,10,medium,2749430.5
+large_store_biased_panel,28,Guayaquil,Guayas,E,10,medium,3420309.0
+large_store_biased_panel,20,Quito,Pichincha,B,6,large,3612255.5
+large_store_biased_panel,38,Loja,Loja,D,4,medium,3005988.0
+large_store_biased_panel,7,Quito,Pichincha,D,8,large,4777960.0
+optimized_panel,44,Quito,Pichincha,A,5,large,10490120.0
+optimized_panel,45,Quito,Pichincha,A,11,large,9655921.0
+optimized_panel,47,Quito,Pichincha,A,14,large,9069117.0
+optimized_panel,3,Quito,Pichincha,D,8,large,8712339.0
+optimized_panel,49,Quito,Pichincha,A,11,large,8384248.5
+optimized_panel,46,Quito,Pichincha,A,14,large,7237314.0
+optimized_panel,51,Guayaquil,Guayas,A,17,large,5364284.0
+optimized_panel,11,Cayambe,Pichincha,B,6,large,4624729.0
+optimized_panel,6,Quito,Pichincha,D,13,large,4242238.0
+optimized_panel,24,Guayaquil,Guayas,D,1,large,4058473.8
+optimized_panel,40,Machala,El Oro,C,3,medium,3504945.0
+optimized_panel,28,Guayaquil,Guayas,E,10,medium,3420309.0
+optimized_panel,17,Quito,Pichincha,C,12,medium,3367259.2
+optimized_panel,37,Cuenca,Azuay,D,2,medium,3185796.0
+optimized_panel,4,Quito,Pichincha,D,9,medium,3126436.0
+optimized_panel,38,Loja,Loja,D,4,medium,3005988.0
+optimized_panel,18,Quito,Pichincha,B,16,medium,2574144.2
+optimized_panel,19,Guaranda,Bolivar,C,15,small,2120811.8
+optimized_panel,14,Riobamba,Chimborazo,C,7,small,1867289.4
