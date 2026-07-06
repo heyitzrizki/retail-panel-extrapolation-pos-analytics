@@ -121,15 +121,19 @@ def contribution_weighted_extrapolation(
     )
 
 
-def category_level_extrapolation(
+def historical_category_level_extrapolation(
     category_sales: pd.DataFrame,
     universe: pd.DataFrame,
     panel: pd.DataFrame,
     period_col: str = "week",
     category_col: str = "family",
-    method_name: str = "category_level",
+    calibration_periods: int = 4,
+    method_name: str = "historical_category_level",
 ) -> pd.DataFrame:
     panel_stores = _panel_store_set(panel)
+    ordered_periods = sorted(category_sales[period_col].dropna().unique())
+    calibration_values = ordered_periods[:calibration_periods]
+    calibration_sales = category_sales[category_sales[period_col].isin(calibration_values)]
     actual = (
         category_sales.groupby([period_col, category_col], as_index=False)
         .agg(actual_sales=("unit_sales", "sum"))
@@ -139,9 +143,9 @@ def category_level_extrapolation(
         .groupby([period_col, category_col], as_index=False)
         .agg(sample_sales=("unit_sales", "sum"))
     )
-    universe_category = category_sales.groupby(category_col, as_index=False).agg(universe_category_sales=("unit_sales", "sum"))
+    universe_category = calibration_sales.groupby(category_col, as_index=False).agg(universe_category_sales=("unit_sales", "sum"))
     panel_category = (
-        category_sales[category_sales["store_nbr"].isin(panel_stores)]
+        calibration_sales[calibration_sales["store_nbr"].isin(panel_stores)]
         .groupby(category_col, as_index=False)
         .agg(panel_category_sales=("unit_sales", "sum"))
     )
@@ -158,7 +162,26 @@ def category_level_extrapolation(
     estimates["estimated_sales"] = estimates["sample_sales"] * estimates["factor"].fillna(0)
     estimates["method"] = method_name
     estimates["panel_name"] = _panel_name(panel)
+    estimates["calibration_period_count"] = len(calibration_values)
     return estimates.rename(columns={period_col: "period", category_col: "category"})
+
+
+def category_level_extrapolation(
+    category_sales: pd.DataFrame,
+    universe: pd.DataFrame,
+    panel: pd.DataFrame,
+    period_col: str = "week",
+    category_col: str = "family",
+    method_name: str = "historical_category_level",
+) -> pd.DataFrame:
+    return historical_category_level_extrapolation(
+        category_sales=category_sales,
+        universe=universe,
+        panel=panel,
+        period_col=period_col,
+        category_col=category_col,
+        method_name=method_name,
+    )
 
 
 # 0.3 Comparisons
