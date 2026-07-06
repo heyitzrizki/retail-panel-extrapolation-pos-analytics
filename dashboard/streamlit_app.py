@@ -29,6 +29,15 @@ def show_table(title: str, df: pd.DataFrame) -> None:
     st.dataframe(df, use_container_width=True)
 
 
+def select_value(label: str, df: pd.DataFrame, column: str) -> str | None:
+    if column not in df.columns:
+        return None
+    values = sorted(df[column].dropna().astype(str).unique())
+    if not values:
+        return None
+    return st.selectbox(label, values)
+
+
 # 0.3 Dashboard
 st.set_page_config(page_title="Retail Panel Extrapolation", layout="wide")
 st.title("Retail Panel Extrapolation and Panel Health Monitoring")
@@ -53,8 +62,12 @@ st.subheader("Weekly Extrapolation Error")
 if weekly_error.empty:
     st.info("Weekly extrapolation error is not available yet.")
 else:
+    weekly_error_view = weekly_error.copy()
+    selected_weekly_panel = select_value("Select Panel", weekly_error_view, "panel_name")
+    if selected_weekly_panel:
+        weekly_error_view = weekly_error_view[weekly_error_view["panel_name"].astype(str) == selected_weekly_panel]
     fig = px.line(
-        weekly_error,
+        weekly_error_view,
         x="period",
         y="error_pct",
         color="method",
@@ -62,14 +75,24 @@ else:
         title="Weekly Error Percentage by Method",
     )
     st.plotly_chart(fig, use_container_width=True)
-    st.dataframe(weekly_error, use_container_width=True)
+    st.dataframe(weekly_error_view, use_container_width=True)
 
 st.subheader("Category-Level Extrapolation Error")
 if category_error.empty:
     st.info("Category-level extrapolation error is not available yet.")
 else:
+    category_error_view = category_error.copy()
+    selected_category_panel = select_value("Select Category Panel", category_error_view, "panel_name")
+    if selected_category_panel:
+        category_error_view = category_error_view[category_error_view["panel_name"].astype(str) == selected_category_panel]
+    selected_category_method = select_value("Select Category Method", category_error_view, "method")
+    if selected_category_method:
+        category_error_view = category_error_view[category_error_view["method"].astype(str) == selected_category_method]
+    group_cols = [column for column in ["panel_name", "method", "category"] if column in category_error_view.columns]
+    if not group_cols:
+        group_cols = ["category"] if "category" in category_error_view.columns else [category_error_view.columns[0]]
     category_view = (
-        category_error.groupby("category", as_index=False)
+        category_error_view.groupby(group_cols, as_index=False)
         .agg(error_pct=("error_pct", "mean"), actual_sales=("actual_sales", "sum"), estimated_sales=("estimated_sales", "sum"))
         .sort_values("error_pct", key=lambda col: col.abs(), ascending=False)
     )
